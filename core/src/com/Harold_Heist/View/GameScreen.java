@@ -71,6 +71,18 @@ public class GameScreen implements ApplicationListener{
 		batch.draw(protagIMG, protag.x, protag.y);
 		batch.end();
 		
+		//
+		if(Gdx.input.isKeyPressed(Keys.LEFT)) protag.x -= 200 * Gdx.graphics.getDeltaTime();
+	    if(Gdx.input.isKeyPressed(Keys.RIGHT)) protag.x += 200 * Gdx.graphics.getDeltaTime();
+	    if(Gdx.input.isKeyPressed(Keys.DOWN)) protag.y-= 200 * Gdx.graphics.getDeltaTime();
+	    if(Gdx.input.isKeyPressed(Keys.UP)) protag.y += 200 * Gdx.graphics.getDeltaTime();
+
+	      // protag stays within the screen bounds
+	     if(protag.x < 0) protag.x = 0;
+	     if(protag.x > 800 - 64) protag.x = 800 - 64;
+	     if(protag.y < 0) protag.y = 0;
+	     if(protag.y > 480 - 64) protag.y = 480 - 64;
+		
 	}
 
 	@Override
